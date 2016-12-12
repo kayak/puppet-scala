@@ -1,4 +1,4 @@
 class scala::params {
-    $version = '2.11.8'
-    $sbt_version = '0.13.12'
+    $version = present
+    $sbt_version = present
 }

@@ -1,4 +1,6 @@
 class scala::deb {
+
+  require ::scala::params
   
   wget::fetch { 'download-typesafe-repo':
     source      => 'http://apt.typesafe.com/repo-deb-build-0002.deb',

@@ -1,5 +1,7 @@
 class scala::rhel {
 
+  require ::scala::params
+
   package { "scala-${::scala::params::version}":
     provider => "rpm",
     ensure => installed,
