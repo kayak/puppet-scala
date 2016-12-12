@@ -1,11 +1,14 @@
 class scala::rhel {
 
-  require ::scala::params
+  include scala::params
 
-  package { "scala-${::scala::params::version}":
+  $version           = $scala::params::version
+  $sbt_version       = $scala::params::sbt_version
+
+  package { "scala-${version}":
     provider => "rpm",
     ensure => installed,
-    source => "http://www.scala-lang.org/files/archive/scala-${::scala::params::version}.rpm",
+    source => "http://www.scala-lang.org/files/archive/scala-${version}.rpm",
     before => Yumrepo['bintray--sbt-rpm'];
   }
 
@@ -17,8 +20,7 @@ class scala::rhel {
   }
 
   package { 'sbt':
-    ensure  => "${::scala::params::sbt_version}",
+    ensure  => "${sbt_version}",
     require => Yumrepo['bintray--sbt-rpm'];
   }
-
 }

@@ -1,4 +1,5 @@
-class scala::params {
-    $version = present
-    $sbt_version = present
-}
+class scala::params (
+    $version,
+    $sbt_version = installed
+)
+{}
